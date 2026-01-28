@@ -62,10 +62,10 @@ WorkOutPro is a mobile application that simplifies the process of tracking gym w
 ### Example Accounts
 To facilitate testing and demonstration, the following example accounts can be used (or created):
 
-| Role | Username | Password | Notes |
-| :--- | :--- | :--- | :--- |
-| **User** | `user@workoutpro.local` | `User123!` | Standard access to workout logging. |
-| **Admin** | `admin@workoutpro.local` | `Admin123!` | Access to User Management panel. |
+| Role | Username | Password |
+| :--- | :--- | :--- |
+| **User** | `user@workoutpro.local` | `User123!` |
+| **Admin** | `admin@workoutpro.local` | `Admin123!` |
 
 ## Functional Layer
 The implementation strictly adheres to the functional requirements:
