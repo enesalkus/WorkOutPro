@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="WorkOutPro.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WorkOutPro"
+    xmlns:pages="clr-namespace:WorkOutPro.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="True"
+    Shell.TabBarBackgroundColor="#6C5CE7"
+    Shell.TabBarTitleColor="White"
+    Shell.TabBarUnselectedColor="#A29BFE"
+    Shell.BackgroundColor="#6C5CE7"
+    Shell.ForegroundColor="White">
+
+    <TabBar>
+        <ShellContent 
+            Title="Ana Sayfa"
+            ContentTemplate="{DataTemplate local:MainPage}" />
+        
+        <ShellContent 
+            Title="Egzersizler"
+            ContentTemplate="{DataTemplate pages:ExerciseTypesPage}" />
+        
+        <ShellContent 
+            Title="Seanslar"
+            ContentTemplate="{DataTemplate pages:TrainingSessionsPage}" />
+        
+        <ShellContent 
+            Title="Antrenmanlar"
+            ContentTemplate="{DataTemplate pages:TrainingExercisesPage}" />
+        
+        <ShellContent 
+            Title="İstatistikler"
+            ContentTemplate="{DataTemplate pages:StatsPage}" />
+    </TabBar>
+
+</Shell>

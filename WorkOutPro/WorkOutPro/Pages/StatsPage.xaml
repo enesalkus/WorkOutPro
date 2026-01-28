@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkOutPro.Pages.StatsPage"
+             Title="Statistics"
+             BackgroundColor="{StaticResource BeFitBackground}">
+
+    <Grid RowDefinitions="Auto,*" Padding="15">
+        
+        <!-- Header -->
+        <Label Grid.Row="0" 
+               Text="Exercise Statistics (Last 4 Weeks)" 
+               FontSize="22" 
+               FontAttributes="Bold"
+               TextColor="{StaticResource BeFitText}"
+               Margin="0,0,0,20"/>
+        
+        <!-- Stats List -->
+        <CollectionView Grid.Row="1" x:Name="StatsList" SelectionMode="None">
+            <CollectionView.Header>
+                <Frame BackgroundColor="{StaticResource BeFitPrimary}" 
+                       CornerRadius="12" 
+                       Padding="15" 
+                       Margin="0,0,0,10">
+                    <Grid ColumnDefinitions="2*,*,*,*,*">
+                        <Label Grid.Column="0" Text="Exercise" TextColor="White" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="Count" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="2" Text="Total" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="3" Text="Avg Load" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="4" Text="Max Load" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    </Grid>
+                </Frame>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="{StaticResource BeFitCard}" 
+                           CornerRadius="12" 
+                           Padding="15" 
+                           Margin="0,3"
+                           HasShadow="True">
+                        <Grid ColumnDefinitions="2*,*,*,*,*">
+                            <Label Grid.Column="0" 
+                                   Text="{Binding ExerciseName}" 
+                                   TextColor="{StaticResource BeFitText}"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding Count}" 
+                                   TextColor="{StaticResource BeFitText}"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="2" 
+                                   Text="{Binding TotalReps}" 
+                                   TextColor="{StaticResource BeFitSuccess}"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="3" 
+                                   Text="{Binding AvgLoad, StringFormat='{0:F1}'}" 
+                                   TextColor="{StaticResource BeFitInfo}"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="4" 
+                                   Text="{Binding MaxLoad}" 
+                                   TextColor="{StaticResource BeFitDanger}"
+                                   FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="📊" FontSize="60"/>
+                    <Label Text="No statistics data yet" 
+                           FontSize="18" 
+                           TextColor="{StaticResource BeFitTextLight}"/>
+                    <Label Text="Data will appear as you add exercises" 
+                           FontSize="14" 
+                           TextColor="{StaticResource BeFitTextLight}"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+        
+    </Grid>
+
+</ContentPage>

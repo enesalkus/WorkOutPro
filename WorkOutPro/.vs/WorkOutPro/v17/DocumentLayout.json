@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\NS\\source\\repos\\WorkOutPro\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F82B751E-6F61-4C11-BAC0-0A77C89B1733}|WorkOutPro\\WorkOutPro.csproj|c:\\users\\ns\\source\\repos\\workoutpro\\workoutpro\\workoutpro.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F82B751E-6F61-4C11-BAC0-0A77C89B1733}|WorkOutPro\\WorkOutPro.csproj|solutionrelative:workoutpro\\workoutpro.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82B751E-6F61-4C11-BAC0-0A77C89B1733}|WorkOutPro\\WorkOutPro.csproj|c:\\users\\ns\\source\\repos\\workoutpro\\workoutpro\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82B751E-6F61-4C11-BAC0-0A77C89B1733}|WorkOutPro\\WorkOutPro.csproj|solutionrelative:workoutpro\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82B751E-6F61-4C11-BAC0-0A77C89B1733}|WorkOutPro\\WorkOutPro.csproj|c:\\users\\ns\\source\\repos\\workoutpro\\workoutpro\\models\\exercisetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82B751E-6F61-4C11-BAC0-0A77C89B1733}|WorkOutPro\\WorkOutPro.csproj|solutionrelative:workoutpro\\models\\exercisetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WorkOutPro.csproj",
+              "DocumentMoniker": "C:\\Users\\NS\\source\\repos\\WorkOutPro\\WorkOutPro\\WorkOutPro.csproj",
+              "RelativeDocumentMoniker": "WorkOutPro\\WorkOutPro.csproj",
+              "ToolTip": "C:\\Users\\NS\\source\\repos\\WorkOutPro\\WorkOutPro\\WorkOutPro.csproj",
+              "RelativeToolTip": "WorkOutPro\\WorkOutPro.csproj",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAADYAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-28T18:51:31.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\NS\\source\\repos\\WorkOutPro\\WorkOutPro\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "WorkOutPro\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\NS\\source\\repos\\WorkOutPro\\WorkOutPro\\MauiProgram.cs",
+              "RelativeToolTip": "WorkOutPro\\MauiProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T18:48:05.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExerciseType.cs",
+              "DocumentMoniker": "C:\\Users\\NS\\source\\repos\\WorkOutPro\\WorkOutPro\\Models\\ExerciseType.cs",
+              "RelativeDocumentMoniker": "WorkOutPro\\Models\\ExerciseType.cs",
+              "ToolTip": "C:\\Users\\NS\\source\\repos\\WorkOutPro\\WorkOutPro\\Models\\ExerciseType.cs",
+              "RelativeToolTip": "WorkOutPro\\Models\\ExerciseType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-28T18:36:06.171Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

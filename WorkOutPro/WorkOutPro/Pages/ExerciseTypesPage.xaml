@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkOutPro.Pages.ExerciseTypesPage"
+             Title="Exercise Types"
+             BackgroundColor="{StaticResource BeFitBackground}">
+
+    <Grid RowDefinitions="Auto,*" Padding="15">
+        
+        <!-- Header with Add Button (Only for Admin) -->
+        <Frame x:Name="AddFrame" Grid.Row="0" BackgroundColor="{StaticResource BeFitCard}" CornerRadius="12" Padding="15" HasShadow="True" Margin="0,0,0,15" IsVisible="False">
+            <Grid ColumnDefinitions="*,Auto">
+                <Entry x:Name="NewExerciseName" 
+                       Placeholder="New exercise type..."
+                       PlaceholderColor="{StaticResource BeFitTextLight}"
+                       TextColor="{StaticResource BeFitText}"
+                       BackgroundColor="Transparent"/>
+                <Button Grid.Column="1" 
+                        Text="+ Add" 
+                        BackgroundColor="{StaticResource BeFitPrimary}"
+                        TextColor="White"
+                        CornerRadius="8"
+                        Clicked="OnAddClicked"/>
+            </Grid>
+        </Frame>
+        
+        <!-- Not Admin Message -->
+        <Frame x:Name="NotAdminFrame" Grid.Row="0" BackgroundColor="{StaticResource BeFitWarning}" CornerRadius="12" Padding="10" Margin="0,0,0,15" IsVisible="False">
+            <Label Text="⚠️ Only Admin users can add exercise types." 
+                   FontSize="13" 
+                   TextColor="{StaticResource BeFitText}"
+                   HorizontalOptions="Center"/>
+        </Frame>
+        
+        <!-- Exercise List -->
+        <CollectionView Grid.Row="1" x:Name="ExerciseList" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="{StaticResource BeFitCard}" 
+                           CornerRadius="12" 
+                           Padding="15" 
+                           Margin="0,5"
+                           HasShadow="True">
+                        <Grid ColumnDefinitions="*,Auto,Auto,Auto">
+                            <Label Text="{Binding Name}" 
+                                   FontSize="16" 
+                                   TextColor="{StaticResource BeFitText}"
+                                   VerticalOptions="Center"/>
+                            
+                            <Button Grid.Column="1" 
+                                    Text="Details" 
+                                    BackgroundColor="{StaticResource BeFitInfo}"
+                                    TextColor="White"
+                                    CornerRadius="6"
+                                    Padding="10,5"
+                                    FontSize="12"
+                                    Margin="5,0"
+                                    CommandParameter="{Binding}"
+                                    Clicked="OnDetailClicked"/>
+                            
+                            <Button x:Name="EditButton"
+                                    Grid.Column="2" 
+                                    Text="Edit" 
+                                    BackgroundColor="{StaticResource BeFitWarning}"
+                                    TextColor="{StaticResource BeFitText}"
+                                    CornerRadius="6"
+                                    Padding="10,5"
+                                    FontSize="12"
+                                    Margin="5,0"
+                                    CommandParameter="{Binding}"
+                                    Clicked="OnEditClicked"/>
+                            
+                            <Button x:Name="DeleteButton"
+                                    Grid.Column="3" 
+                                    Text="Delete" 
+                                    BackgroundColor="{StaticResource BeFitDanger}"
+                                    TextColor="White"
+                                    CornerRadius="6"
+                                    Padding="10,5"
+                                    FontSize="12"
+                                    CommandParameter="{Binding}"
+                                    Clicked="OnDeleteClicked"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="💪" FontSize="60"/>
+                    <Label Text="No exercise types yet" 
+                           FontSize="18" 
+                           TextColor="{StaticResource BeFitTextLight}"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+        
+    </Grid>
+
+</ContentPage>

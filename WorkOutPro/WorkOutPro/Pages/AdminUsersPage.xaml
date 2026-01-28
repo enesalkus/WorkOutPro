@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkOutPro.Pages.AdminUsersPage"
+             Title="User Management"
+             BackgroundColor="White">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Close" Clicked="OnCloseClicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,*">
+        <Label Text="Registered Users" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               Margin="0,20"
+               TextColor="#2D3436"/>
+
+        <CollectionView x:Name="UsersList" Grid.Row="1" Margin="10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Stroke="#DFE6E9" StrokeThickness="1" StrokeShape="RoundRectangle 10" Margin="0,5" Padding="10">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{Binding FullName}" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
+                                <Label Text="{Binding Email}" FontSize="14" TextColor="Gray"/>
+                                <Label Text="{Binding Role}" FontSize="12">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Role}" Value="Admin">
+                                            <Setter Property="TextColor" Value="Red"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Role}" Value="User">
+                                            <Setter Property="TextColor" Value="Blue"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </VerticalStackLayout>
+
+                            <Button Grid.Column="1" 
+                                    Text="Delete" 
+                                    BackgroundColor="#FF7675" 
+                                    TextColor="White"
+                                    HeightRequest="40"
+                                    CornerRadius="8"
+                                    Clicked="OnDeleteUserClicked"
+                                    CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

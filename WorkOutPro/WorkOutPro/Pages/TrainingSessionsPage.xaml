@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkOutPro.Pages.TrainingSessionsPage"
+             Title="Training Sessions"
+             BackgroundColor="{StaticResource BeFitBackground}">
+
+    <Grid RowDefinitions="Auto,Auto,*" Padding="15">
+        
+        <!-- Add New Session Form -->
+        <Frame Grid.Row="0" BackgroundColor="{StaticResource BeFitCard}" CornerRadius="12" Padding="15" HasShadow="True" Margin="0,0,0,10">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Add New Session" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource BeFitPrimary}"/>
+                
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                    <!-- Start Date/Time -->
+                    <VerticalStackLayout Grid.Column="0" Spacing="5">
+                        <Label Text="Start" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource BeFitText}"/>
+                        
+                        <HorizontalStackLayout Spacing="5">
+                            <Label Text="Date:" FontSize="12" TextColor="{StaticResource BeFitTextLight}" VerticalOptions="Center" WidthRequest="40"/>
+                            <Frame BackgroundColor="White" BorderColor="{StaticResource BeFitSecondary}" CornerRadius="8" Padding="8,5" HasShadow="False">
+                                <Entry x:Name="StartDateEntry" 
+                                       Placeholder="DD.MM.YYYY"
+                                       PlaceholderColor="{StaticResource BeFitTextLight}"
+                                       TextColor="{StaticResource BeFitText}"
+                                       WidthRequest="90"
+                                       Keyboard="Text"/>
+                            </Frame>
+                        </HorizontalStackLayout>
+                        
+                        <HorizontalStackLayout Spacing="5">
+                            <Label Text="Time:" FontSize="12" TextColor="{StaticResource BeFitTextLight}" VerticalOptions="Center" WidthRequest="40"/>
+                            <Frame BackgroundColor="White" BorderColor="{StaticResource BeFitSecondary}" CornerRadius="8" Padding="8,5" HasShadow="False">
+                                <Entry x:Name="StartTimeEntry" 
+                                       Placeholder="HH:MM"
+                                       PlaceholderColor="{StaticResource BeFitTextLight}"
+                                       TextColor="{StaticResource BeFitText}"
+                                       WidthRequest="70"
+                                       Keyboard="Text"/>
+                            </Frame>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    
+                    <!-- End Date/Time -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="5">
+                        <Label Text="End" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource BeFitText}"/>
+                        
+                        <HorizontalStackLayout Spacing="5">
+                            <Label Text="Date:" FontSize="12" TextColor="{StaticResource BeFitTextLight}" VerticalOptions="Center" WidthRequest="40"/>
+                            <Frame BackgroundColor="White" BorderColor="{StaticResource BeFitSecondary}" CornerRadius="8" Padding="8,5" HasShadow="False">
+                                <Entry x:Name="EndDateEntry" 
+                                       Placeholder="DD.MM.YYYY"
+                                       PlaceholderColor="{StaticResource BeFitTextLight}"
+                                       TextColor="{StaticResource BeFitText}"
+                                       WidthRequest="90"
+                                       Keyboard="Text"/>
+                            </Frame>
+                        </HorizontalStackLayout>
+                        
+                        <HorizontalStackLayout Spacing="5">
+                            <Label Text="Time:" FontSize="12" TextColor="{StaticResource BeFitTextLight}" VerticalOptions="Center" WidthRequest="40"/>
+                            <Frame BackgroundColor="White" BorderColor="{StaticResource BeFitSecondary}" CornerRadius="8" Padding="8,5" HasShadow="False">
+                                <Entry x:Name="EndTimeEntry" 
+                                       Placeholder="HH:MM"
+                                       PlaceholderColor="{StaticResource BeFitTextLight}"
+                                       TextColor="{StaticResource BeFitText}"
+                                       WidthRequest="70"
+                                       Keyboard="Text"/>
+                            </Frame>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Grid>
+                
+                <Label Text="Example: Date: 10.01.2026, Time: 10:30" FontSize="11" TextColor="{StaticResource BeFitTextLight}" FontAttributes="Italic"/>
+                
+                <Button Text="+ Create Session" 
+                        BackgroundColor="{StaticResource BeFitPrimary}"
+                        TextColor="White"
+                        CornerRadius="10"
+                        FontSize="16"
+                        Padding="20,12"
+                        Clicked="OnAddClicked"/>
+            </VerticalStackLayout>
+        </Frame>
+        
+        <!-- Sessions List Header -->
+        <Label Grid.Row="1" Text="Current Sessions" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource BeFitText}" Margin="0,10,0,5"/>
+        
+        <!-- Sessions List -->
+        <CollectionView Grid.Row="2" x:Name="SessionList" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="{StaticResource BeFitCard}" 
+                           CornerRadius="12" 
+                           Padding="15" 
+                           Margin="0,5"
+                           HasShadow="True">
+                        <Grid ColumnDefinitions="*,*,Auto,Auto,Auto" ColumnSpacing="10">
+                            
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="Start" FontSize="11" TextColor="{StaticResource BeFitTextLight}"/>
+                                <Label Text="{Binding StartTime, StringFormat='{0:dd.MM.yyyy HH:mm}'}" 
+                                       FontSize="14" 
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource BeFitText}"/>
+                            </VerticalStackLayout>
+                            
+                            <VerticalStackLayout Grid.Column="1">
+                                <Label Text="End" FontSize="11" TextColor="{StaticResource BeFitTextLight}"/>
+                                <Label Text="{Binding EndTime, StringFormat='{0:dd.MM.yyyy HH:mm}'}" 
+                                       FontSize="14"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource BeFitText}"/>
+                            </VerticalStackLayout>
+                            
+                            <Button Grid.Column="2" 
+                                    Text="Details" 
+                                    BackgroundColor="{StaticResource BeFitInfo}"
+                                    TextColor="White"
+                                    CornerRadius="6"
+                                    Padding="10,5"
+                                    FontSize="12"
+                                    CommandParameter="{Binding}"
+                                    Clicked="OnDetailClicked"/>
+                            
+                            <Button Grid.Column="3" 
+                                    Text="Edit" 
+                                    BackgroundColor="{StaticResource BeFitWarning}"
+                                    TextColor="{StaticResource BeFitText}"
+                                    CornerRadius="6"
+                                    Padding="10,5"
+                                    FontSize="12"
+                                    CommandParameter="{Binding}"
+                                    Clicked="OnEditClicked"/>
+                            
+                            <Button Grid.Column="4" 
+                                    Text="Delete" 
+                                    BackgroundColor="{StaticResource BeFitDanger}"
+                                    TextColor="White"
+                                    CornerRadius="6"
+                                    Padding="10,5"
+                                    FontSize="12"
+                                    CommandParameter="{Binding}"
+                                    Clicked="OnDeleteClicked"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="📅" FontSize="60"/>
+                    <Label Text="No training sessions yet" 
+                           FontSize="18" 
+                           TextColor="{StaticResource BeFitTextLight}"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+        
+    </Grid>
+
+</ContentPage>
